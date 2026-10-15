@@ -1,0 +1,10 @@
+/* Scroll reveals (class-driven, one-time) + reduced-motion */
+.split.shown .w>i{transform:none;transition:transform 1.15s var(--ease) calc(var(--d,0s) + var(--i,0)*.07s)}
+.rv.shown{opacity:1;transform:none;transition:opacity 1s var(--ease) var(--d,0s),transform 1s var(--ease) var(--d,0s)}
+.team .pc{opacity:0;transform:translateY(60px);clip-path:inset(0 0 100% 0)}
+.team.shown .pc{opacity:1;transform:none;clip-path:inset(0);transition:opacity 1s var(--ease) calc(var(--i,0)*.14s),transform 1.1s var(--ease) calc(var(--i,0)*.14s),clip-path 1.2s var(--ease) calc(var(--i,0)*.14s)}
+.rm .team .pc{opacity:1;transform:none;clip-path:none}
+.rm .split .w>i,.rm .rv{transition:none!important}
+/* small helpers used by components */
+.quote{font:italic 300 1.25rem/1.3 Sora,sans-serif}.mid{margin-inline:auto}.hq{font-size:1.6rem}.fh{font-size:1.5rem}.send{justify-content:center}.cta{margin-top:2.2rem}
+.linkbtn{background:none;border:0;text-decoration:underline;cursor:pointer;color:inherit}
