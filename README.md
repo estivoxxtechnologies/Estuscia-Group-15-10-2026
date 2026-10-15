@@ -10,7 +10,7 @@ Black-and-purple financial brand experience: green rising profit graph, money ic
     npm run preview
 
 ## Folder structure
-    public/                    static files (favicon, robots.txt, sitemap.xml, images/logo.png, images/team/)
+    public/                    static files (favicon, robots.txt, sitemap.xml, public/images/logo.png, images/team/)
     src/
       main.tsx  App.tsx        entry + page composition
       config/                  site.ts (contact details), emailjs.ts (IDs/key), sections.ts (ids + nav)
