@@ -10,7 +10,7 @@ Black-and-purple financial brand experience: green rising profit graph, money ic
     npm run preview
 
 ## Folder structure
-    public/                    static files (favicon, robots.txt, sitemap.xml, public/images/logo.png, images/team/)
+    public/                    static files (favicon, robots.txt, sitemap.xml, images/logo.png, images/team/)
     src/
       main.tsx  App.tsx        entry + page composition
       config/                  site.ts (contact details), emailjs.ts (IDs/key), sections.ts (ids + nav)
@@ -37,7 +37,7 @@ Payload fields: full_name, email, phone, organization, inquiry_type, message, da
 - If EmailJS domain restrictions are enabled, add your production domain in the EmailJS dashboard.
 
 ## Add / confirm before launch
-- Photos: `public/images/team/` → shahzeen-khalid.jpg, akshay-m-a.jpg, riza-mathiyam.jpg, anirudh-menon.jpg (initials until then)
+- Photos: `images/team/` → shahzeen-khalid.jpg, akshay-m-a.jpg, riza-mathiyam.jpg, anirudh-menon.jpg (initials until then)
 - Favicon: replace `public/favicon.png` (currently the bird mark from the logo)
 - `src/config/site.ts`: confirm email (support@estuscia.com), business-hours wording, the 24-hour response promise and NDA notice
 - Footer legal / privacy / disclosure links; exact live-site wording for ecosystem and strength descriptions in `src/data/`
