@@ -94,8 +94,11 @@ export default function FinanceScene({ reduce, onFail }: { reduce: boolean; onFa
       tracer.position.copy(curve.getPoint(clamp(S.intro < 1 ? lp : (T * 0.07) % 1))); tracer.visible = lp > 0;
       dots.forEach((m, i) => m.scale.setScalar(clamp((lp * (N - 1) - i) * 3)));
       pillars.forEach((m, i) => { const l = clamp(S.pillars - i), mat = m.material as THREE.MeshStandardMaterial; m.scale.y = 0.1 + m.userData.h * l; m.position.y = -2 + m.scale.y / 2; mat.emissiveIntensity = 0.1 + l * 1.5; });
-      pLines.material.opacity = clamp(S.pillars - 4) * 0.8;
-      net.rotation.y = T * 0.08;
+      const pa = clamp((-cam.position.z - 1) / 6), na = clamp((-cam.position.z - 16) / 8); // later scenes appear only when the camera reaches them
+      pillars.forEach(m => { m.visible = pa > 0.01; const mt = m.material as THREE.MeshStandardMaterial; mt.transparent = true; mt.opacity = pa; });
+      pLines.visible = pa > 0.01; pLines.material.opacity = clamp(S.pillars - 4) * 0.8 * pa;
+      net.rotation.y = T * 0.08; net.visible = na > 0.01;
+      net.children.forEach(o => { const mt = (o as THREE.Mesh).material as THREE.Material; mt.transparent = true; mt.opacity = (o as THREE.LineSegments).isLineSegments ? 0.45 * na : na; });
       nodes.forEach((m, i) => { const f = i === S.focus, mat = m.material as THREE.MeshStandardMaterial; m.scale.lerp(one.setScalar(f ? 1.8 : 1), 0.08); mat.emissiveIntensity += ((f ? 2.2 : 0.5) - mat.emissiveIntensity) * 0.08; });
       if (logo) { const a = reduce ? 0.9 : clamp(S.intro * 1.6 - 0.9) * S.logo; logo.material.opacity += (a - logo.material.opacity) * 0.1; halo.material.opacity = logo.material.opacity * 0.5; logo.position.y = 2.6 + Math.sin(T * 0.7) * 0.14; logo.rotation.y = Math.sin(T * 0.4) * 0.2 + M.x * 0.25; halo.position.y = logo.position.y; }
       icons.forEach((sp, i) => { sp.position.y = sp.userData.y + Math.sin(T * 0.8 + i) * 0.18; sp.position.x = sp.userData.x + Math.cos(T * 0.5 + i) * 0.08; sp.material.rotation = Math.sin(T * 0.4 + i) * 0.12; sp.material.opacity += ((reduce ? 0.85 : clamp(S.intro * 1.6 - 0.7) * S.icons * 0.9) - sp.material.opacity) * 0.08; });

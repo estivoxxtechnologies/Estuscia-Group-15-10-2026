@@ -27,6 +27,7 @@ export default function App() {
 
   useEffect(() => { clearHash(); if (reduce) finalState(); }, [reduce]);
   useLayoutEffect(() => { document.documentElement.classList.toggle('rm', reduce); document.documentElement.classList.toggle('nogl', glFail); }, [reduce, glFail]);
+  useEffect(() => { document.documentElement.classList.toggle('past', active !== 'hero'); }, [active]);
   useJourney(ready && !reduce);
 
   return (

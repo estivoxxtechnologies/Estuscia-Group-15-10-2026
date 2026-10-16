@@ -11,7 +11,7 @@ export default function Navbar({ active, onNavigate, reduce }: { active: string;
     <nav className={open ? 'open' : ''} aria-label="Primary">
       <a className="lg" href="/" aria-label="Estuscia Group home" onClick={e => go(e, 'hero')}><img src={ASSETS.logo} alt="Estuscia Group" /></a>
       <ul id="menu">{NAV_ITEMS.map(i => <li key={i.id}><a href="/" className={active === i.id ? 'on' : ''} aria-current={active === i.id ? 'true' : undefined} onClick={e => go(e, i.id)}>{i.label}</a></li>)}</ul>
-      {/* <a className="btn p" href="/" onClick={e => go(e, 'contact')}>Get in Touch</a> */}
+      <a className="btn p" href="/" onClick={e => go(e, 'contact')}>Get in Touch</a>
       <button className="bg2" aria-label="Menu" aria-expanded={open} aria-controls="menu" onClick={() => setOpen(o => !o)}><span /><span /></button>
     </nav>
   );
