@@ -8,7 +8,7 @@
 .cols p{color:var(--mute);font-size:.92rem;margin-top:.6rem}.chk{list-style:none;padding:0;margin:.9rem 0 0;display:grid;gap:.4rem}.chk li{padding-left:1.3rem;position:relative;font-size:.86rem}.chk li:before{content:"";position:absolute;left:0;top:.6em;width:.7rem;height:1px;background:var(--v);box-shadow:0 0 8px var(--v)}
 .trust{display:flex;gap:2.2rem;flex-wrap:wrap;margin-top:2.2rem;font:300 clamp(1.1rem,2vw,1.6rem) Sora}.trust span:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--v);box-shadow:0 0 12px var(--v);margin-right:.7rem}
 /* sticky scenes */
-.scene{height:320vh}.scene.eco{height:460vh}.stick{position:sticky;top:0;height:100svh;display:flex;align-items:center;padding:6rem clamp(1.2rem,6vw,6rem) 3rem}.stick .wrap{width:100%}
+.scene{height:320vh}.scene.eco{height:100vh}.stick{position:sticky;top:0;height:100svh;display:flex;align-items:center;padding:6rem clamp(1.2rem,6vw,6rem) 3rem}.stick .wrap{width:100%}
 .why-l{max-width:30rem}.whylist{list-style:none;padding:0;margin-top:2rem;display:grid;gap:.9rem}.whylist li{display:grid;grid-template-columns:2.4rem 1fr;gap:.6rem;opacity:.22;transition:opacity .7s var(--ease),transform .7s var(--ease);transform:translateX(-10px)}.whylist li.on{opacity:1;transform:none}
 .whylist small{font:500 .65rem Inter;letter-spacing:.2em;color:var(--g);padding-top:.35rem}.whylist p{color:var(--mute);font-size:.86rem}.rm .whylist li{opacity:1;transform:none}
 .eco-card{max-width:26rem;min-height:15rem;margin-top:1.6rem;padding:1.6rem}.eco-card p{color:var(--mute);font-size:.92rem;margin:.6rem 0 0}.eco-card .tg{font:500 .64rem Inter;letter-spacing:.22em;text-transform:uppercase;color:var(--g)}
