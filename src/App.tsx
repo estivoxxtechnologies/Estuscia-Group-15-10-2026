@@ -38,7 +38,7 @@ export default function App() {
         <Hero ready={ready || reduce} reduce={reduce} />
         <About />
         <WhyUs reduce={reduce} />
-        <Ecosystem reduce={reduce} />
+        <Ecosystem />
         <Leadership />
         <ContactSection />
       </main>

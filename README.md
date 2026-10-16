@@ -27,6 +27,8 @@ Black-and-purple financial brand experience: green rising profit graph, money ic
 ## Behaviour notes
 - The URL never changes when navigating (no #about / #contact). Any stray #hash is cleared on load.
 - Reduced-motion users get a static version (no intro, no pinned scenes). If WebGL is unavailable a gradient fallback is used.
+- Ecosystem: selecting a brand is click-only; scrolling never changes it.
+- Leadership cards are compact horizontal profiles on phones.
 - Leadership cards reveal with a single CSS class on the grid, so all four always appear.
 
 ## Contact form (EmailJS)
@@ -37,7 +39,7 @@ Payload fields: full_name, email, phone, organization, inquiry_type, message, da
 - If EmailJS domain restrictions are enabled, add your production domain in the EmailJS dashboard.
 
 ## Add / confirm before launch
-- Photos: `images/team/` → shahzeen-khalid.jpg, akshay-m-a.jpg, riza-mathiyam.jpg, anirudh-menon.jpg (initials until then)
+- Photos: `public/images/team/` → shahzeen-khalid.jpg, akshay-m-a.jpg, riza-mathiyam.jpg, anirudh-menon.jpg (initials until then)
 - Favicon: replace `public/favicon.png` (currently the bird mark from the logo)
 - `src/config/site.ts`: confirm email (support@estuscia.com), business-hours wording, the 24-hour response promise and NDA notice
 - Footer legal / privacy / disclosure links; exact live-site wording for ecosystem and strength descriptions in `src/data/`

@@ -95,7 +95,7 @@ export default function FinanceScene({ reduce, onFail }: { reduce: boolean; onFa
       dots.forEach((m, i) => m.scale.setScalar(clamp((lp * (N - 1) - i) * 3)));
       pillars.forEach((m, i) => { const l = clamp(S.pillars - i), mat = m.material as THREE.MeshStandardMaterial; m.scale.y = 0.1 + m.userData.h * l; m.position.y = -2 + m.scale.y / 2; mat.emissiveIntensity = 0.1 + l * 1.5; });
       pLines.material.opacity = clamp(S.pillars - 4) * 0.8;
-      net.rotation.y = S.orbit;
+      net.rotation.y = T * 0.08;
       nodes.forEach((m, i) => { const f = i === S.focus, mat = m.material as THREE.MeshStandardMaterial; m.scale.lerp(one.setScalar(f ? 1.8 : 1), 0.08); mat.emissiveIntensity += ((f ? 2.2 : 0.5) - mat.emissiveIntensity) * 0.08; });
       if (logo) { const a = reduce ? 0.9 : clamp(S.intro * 1.6 - 0.9) * S.logo; logo.material.opacity += (a - logo.material.opacity) * 0.1; halo.material.opacity = logo.material.opacity * 0.5; logo.position.y = 2.6 + Math.sin(T * 0.7) * 0.14; logo.rotation.y = Math.sin(T * 0.4) * 0.2 + M.x * 0.25; halo.position.y = logo.position.y; }
       icons.forEach((sp, i) => { sp.position.y = sp.userData.y + Math.sin(T * 0.8 + i) * 0.18; sp.position.x = sp.userData.x + Math.cos(T * 0.5 + i) * 0.08; sp.material.rotation = Math.sin(T * 0.4 + i) * 0.12; sp.material.opacity += ((reduce ? 0.85 : clamp(S.intro * 1.6 - 0.7) * S.icons * 0.9) - sp.material.opacity) * 0.08; });

@@ -8,7 +8,7 @@
 .cols p{color:var(--mute);font-size:.92rem;margin-top:.6rem}.chk{list-style:none;padding:0;margin:.9rem 0 0;display:grid;gap:.4rem}.chk li{padding-left:1.3rem;position:relative;font-size:.86rem}.chk li:before{content:"";position:absolute;left:0;top:.6em;width:.7rem;height:1px;background:var(--v);box-shadow:0 0 8px var(--v)}
 .trust{display:flex;gap:2.2rem;flex-wrap:wrap;margin-top:2.2rem;font:300 clamp(1.1rem,2vw,1.6rem) Sora}.trust span:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--v);box-shadow:0 0 12px var(--v);margin-right:.7rem}
 /* sticky scenes */
-.scene{height:320vh}.scene.eco{height:100vh}.stick{position:sticky;top:0;height:100svh;display:flex;align-items:center;padding:6rem clamp(1.2rem,6vw,6rem) 3rem}.stick .wrap{width:100%}
+.scene{height:320vh}.scene.eco{height:460vh}.stick{position:sticky;top:0;height:100svh;display:flex;align-items:center;padding:6rem clamp(1.2rem,6vw,6rem) 3rem}.stick .wrap{width:100%}
 .why-l{max-width:30rem}.whylist{list-style:none;padding:0;margin-top:2rem;display:grid;gap:.9rem}.whylist li{display:grid;grid-template-columns:2.4rem 1fr;gap:.6rem;opacity:.22;transition:opacity .7s var(--ease),transform .7s var(--ease);transform:translateX(-10px)}.whylist li.on{opacity:1;transform:none}
 .whylist small{font:500 .65rem Inter;letter-spacing:.2em;color:var(--g);padding-top:.35rem}.whylist p{color:var(--mute);font-size:.86rem}.rm .whylist li{opacity:1;transform:none}
 .eco-card{max-width:26rem;min-height:15rem;margin-top:1.6rem;padding:1.6rem}.eco-card p{color:var(--mute);font-size:.92rem;margin:.6rem 0 0}.eco-card .tg{font:500 .64rem Inter;letter-spacing:.22em;text-transform:uppercase;color:var(--g)}
@@ -29,3 +29,17 @@ form{padding:1.6rem;display:grid;gap:.8rem}.two{display:grid;grid-template-colum
 input,select,textarea{width:100%;padding:.8rem 1rem;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.04);transition:.3s}input:focus,select:focus,textarea:focus{border-color:var(--v);box-shadow:0 0 0 3px rgba(124,92,255,.25);outline:0}select option{background:#0d0824}
 .f.bad input,.f.bad select,.f.bad textarea{border-color:#ff8a9a}.f em{display:block;color:#ff9fac;font-size:.74rem;margin-top:.25rem;font-style:normal}.hp{position:absolute;left:-9999px}
 .st{font-size:.84rem;min-height:1.2rem}.st a{text-decoration:underline}.st.bad{color:#ff9fac}.done{text-align:center;padding:2rem 1rem}.done h3{font-size:1.6rem;margin:.6rem 0}.done p{color:var(--mute);margin-bottom:1.2rem}
+
+/* Ecosystem: a normal section (selection by click only — scrolling never changes it) */
+.ecoplain{min-height:100svh;display:flex;align-items:center}.ecoplain .wrap{width:100%}
+/* Leadership on phones: compact horizontal profile cards */
+@media(max-width:700px){
+ .team{grid-template-columns:1fr;gap:.8rem;margin-top:1.6rem}
+ .pc{display:grid;grid-template-columns:84px 1fr;column-gap:1rem;align-items:start;padding:.9rem;border-radius:18px}
+ .pc .ph{grid-column:1;grid-row:1/4;width:84px;height:auto;aspect-ratio:1/1;border-radius:14px;font-size:1.5rem}
+ .pc h3,.pc .eyebrow,.pc p{grid-column:2;margin-left:0;margin-right:0}
+ .pc h3{font-size:1.05rem;margin-top:.1rem}
+ .pc .eyebrow{font-size:.55rem;letter-spacing:.16em;margin-top:.3rem;margin-bottom:.4rem}
+ .pc p{font-size:.78rem;line-height:1.45;margin-bottom:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+ .pc .tags{grid-column:1/-1;margin:.7rem 0 0}
+}
