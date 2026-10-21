@@ -8,7 +8,7 @@ import { saveLeadLocally } from '../../utils/leads';
 import { validate } from './validation';
 import Reveal from '../../components/ui/Reveal';
 
-const EMPTY: ContactFormData = { fullName: '', email: '', phone: '', organization: '', inquiryType: 'General Inquiry', message: '' };
+const EMPTY: ContactFormData = { fullName: '', email: '', phone: '', organization: '', message: '' };
 type Status = 'idle' | 'sending' | 'error' | 'done' | 'demo';
 
 export default function ContactForm() {
@@ -27,7 +27,7 @@ export default function ContactForm() {
     try {
       await emailjs.send(EMAILJS.serviceId, EMAILJS.templateId, {
         full_name: snapshot.fullName, email: snapshot.email, phone: snapshot.phone,
-        organization: snapshot.organization || 'Not Provided', inquiry_type: snapshot.inquiryType, message: snapshot.message, date: new Date().toLocaleString(),
+        organization: snapshot.organization || 'Not Provided',  message: snapshot.message, date: new Date().toLocaleString(),
       }, EMAILJS.publicKey);
       saveLeadLocally(snapshot); setSentName(snapshot.fullName); setData(EMPTY); setStatus('done');
     } catch (err) { console.error('EmailJS error:', err); setSentName(snapshot.fullName); setStatus('error'); }   // never a false success
@@ -56,8 +56,8 @@ export default function ContactForm() {
           <div className={'f' + (errors.phone ? ' bad' : '')}><label htmlFor="phone">Phone Number <b>*</b></label><input {...field('phone')} type="tel" autoComplete="tel" placeholder="+1 (555) 000-0000" value={data.phone} onChange={e => set('phone', e.target.value)} /><Err k="phone" /></div>
           <div className="f"><label htmlFor="organization">Organization / Company</label><input id="organization" autoComplete="organization" placeholder="Company or Startup Name" value={data.organization} onChange={e => set('organization', e.target.value)} /></div>
         </div>
-        <div className="f"><label htmlFor="inquiryType">Area of Interest / Vertical <b>*</b></label>
-          <select id="inquiryType" value={data.inquiryType} onChange={e => set('inquiryType', e.target.value as InquiryType)}>{INQUIRY_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}</select></div>
+        {/* <div className="f"><label htmlFor="inquiryType">Area of Interest / Vertical <b>*</b></label>
+          <select id="inquiryType" value={data.inquiryType} onChange={e => set('inquiryType', e.target.value as InquiryType)}>{INQUIRY_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}</select></div> */}
         <div className={'f' + (errors.message ? ' bad' : '')}><label htmlFor="message">Message / Project Details <b>*</b></label><textarea {...field('message')} rows={4} placeholder="Briefly describe your objectives, project timeline, or specific requirements..." value={data.message} onChange={e => set('message', e.target.value)} /><Err k="message" /></div>
         <input ref={honeypot} className="hp" tabIndex={-1} autoComplete="off" aria-hidden="true" name="website" />
         <button className="btn p send" disabled={status === 'sending'}>{status === 'sending' ? 'Processing Submission...' : 'Submit Inquiry to Estuscia Group'}</button>
