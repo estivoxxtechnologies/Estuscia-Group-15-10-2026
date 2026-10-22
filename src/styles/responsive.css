@@ -1,3 +1,20 @@
 /* Breakpoints */
 @media(max-width:900px){.cols,.cgrid{grid-template-columns:1fr}.team{grid-template-columns:1fr 1fr}.fg{grid-template-columns:1fr}.scene{height:260vh}.scene.eco{height:380vh}.stick{align-items:flex-end;padding-top:5rem}.eco-card{min-height:12rem}}
 @media(max-width:520px){.team,.two{grid-template-columns:1fr}}
+
+/* Mobile polish */
+html{overflow-x:hidden}
+@media(max-width:700px){
+ section{padding:4.4rem 1.1rem}
+ h1{font-size:clamp(2.1rem,9.5vw,3rem)}h2{font-size:clamp(1.7rem,7.4vw,2.3rem)}
+ .lead{font-size:.95rem;margin-top:1rem}
+ #hero{padding-bottom:7vh}#hero h1{max-width:none}
+ .cap{position:static;margin-top:1.4rem}.cue{display:none}
+ .cols{gap:1rem;margin-top:1.6rem}.cols>div,.glass{padding:1.2rem;border-radius:18px}
+ .trust{gap:.7rem 1.4rem;font-size:1.05rem;margin-top:1.6rem}
+ .whylist{gap:.8rem;margin-top:1.4rem}
+ .eco-card{min-height:0;padding:1.2rem}.dots{gap:.4rem}.dots button{padding:.4rem .8rem;font-size:.72rem}
+ .cgrid{gap:1.2rem;margin-top:1.8rem}.cpanel{padding:1.3rem;gap:1rem}form{padding:1.2rem}
+ input,select,textarea{font-size:16px}
+ footer{padding:2.2rem 1.1rem 1.6rem}.fg{gap:1.4rem}
+}

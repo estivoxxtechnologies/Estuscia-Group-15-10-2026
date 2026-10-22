@@ -9,4 +9,4 @@ export const SITE = {
   responseTime: 'Inquiries answered within 24 business hours', // TODO: confirm this commitment
   confidentiality: 'All communications and proposals submitted are protected under strict NDA and corporate confidentiality protocols.', // TODO: confirm policy
 };
-export const ASSETS = { logo: `${base}images/logo.png`, team: (file: string) => `${base}images/team/${file}` };
+export const ASSETS = { logo: `${base}images/logo.png`, video: `${base}videos/teaser.mp4`, poster: `${base}videos/teaser-poster.jpg`, team: (file: string) => `${base}images/team/${file}` };
