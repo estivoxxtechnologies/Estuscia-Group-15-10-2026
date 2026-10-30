@@ -4,6 +4,7 @@ import App from './App';
 import './styles/base.css';
 import './styles/layout.css';
 import './styles/sections.css';
+import './styles/sectors.css';
 import './styles/responsive.css';
 import './styles/motion.css';
 

@@ -8,6 +8,7 @@ import Hero from './sections/Hero';
 import About from './sections/About';
 import WhyUs from './sections/WhyUs';
 import Ecosystem from './sections/Ecosystem';
+import Sectors from './sections/Sectors';
 import Leadership from './sections/Leadership';
 import ContactSection from './sections/contact/ContactSection';
 import { useReducedMotion } from './hooks/useReducedMotion';
@@ -40,6 +41,7 @@ export default function App() {
         <About />
         <WhyUs reduce={reduce} />
         <Ecosystem />
+        <Sectors />
         <Leadership />
         <ContactSection />
       </main>
