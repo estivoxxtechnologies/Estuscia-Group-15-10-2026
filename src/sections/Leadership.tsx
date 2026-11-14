@@ -8,7 +8,7 @@ import type { Leader } from '../types';
 
 function Portrait({ leader }: { leader: Leader }) {
   const [bad, setBad] = useState(false), initials = leader.name.split(' ').map(x => x[0]).slice(0, 2).join('');
-  return <div className="ph">{initials}{!bad && <img src={ASSETS.team(leader.photo)} alt={leader.name} loading="lazy" onError={() => setBad(true)} />}</div>;
+  return <div className="ph">{initials}{!bad && <img src={ASSETS.team(leader.photo)} alt={leader.name} width={800} height={800} loading="lazy" decoding="async" onError={() => setBad(true)} />}</div>;
 }
 
 /** Cards reveal via a CSS class on the grid, so every profile always appears (no competing animations). */
@@ -23,6 +23,7 @@ export default function Leadership() {
           <article className="pc" key={p.name} style={{ ['--i' as string]: i } as CSSProperties}>
             <Portrait leader={p} /><h3>{p.name}</h3><span className="eyebrow">{p.role}</span><p>{p.summary}</p>
             <div className="tags">{p.tags.map(t => <span key={t}>{t}</span>)}</div>
+            {p.linkedin && <a className="in" href={p.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${p.name} on LinkedIn`}>LinkedIn</a>}
           </article>))}
       </div>
     </div></section>

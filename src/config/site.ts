@@ -9,4 +9,5 @@ export const SITE = {
   responseTime: 'Inquiries answered within 24 business hours', // TODO: confirm this commitment
   confidentiality: 'All communications and proposals submitted are protected under strict NDA and corporate confidentiality protocols.', // TODO: confirm policy
 };
-export const ASSETS = { logo: `${base}images/logo.png`, video: `${base}videos/teaser.mp4`, poster: `${base}videos/teaser-poster.jpg`, team: (file: string) => `${base}images/team/${file}` };
+export const LOGO = { width: 2236, height: 403 };   // intrinsic size of the logo file (prevents layout shift)
+export const ASSETS = { logo: `${base}images/logo.webp`, video: `${base}videos/teaser.mp4`, poster: `${base}videos/teaser-poster.jpg`, team: (file: string) => `${base}images/team/${file}` };

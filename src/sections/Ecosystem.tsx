@@ -17,6 +17,7 @@ export default function Ecosystem() {
       <div className="dots" role="tablist" aria-label="Business entities">
         {BRANDS.map((x, i) => <button key={x.name} role="tab" aria-selected={i === idx} className={i === idx ? 'on' : ''} onClick={() => pick(i)}>{x.name}</button>)}
       </div>
+      <ul className="vh" aria-label="All nine brands in the ecosystem">{BRANDS.map(b => <li key={b.name}><h3>{b.name}</h3><p>{b.tag}. {b.description}</p></li>)}</ul>
       <ComingSoon />
     </div></section>
   );

@@ -608,7 +608,7 @@ select option {
     padding: 5rem clamp(1.2rem, 6vw, 6rem) 3rem
 }
 
-.scene.plain .whylist li {
+.js .scene.plain .whylist li {
     opacity: 0;
     transform: translateY(14px)
 }
@@ -745,7 +745,7 @@ select option {
     mask-image: linear-gradient(to left, #000 45%, transparent)
 }
 
-.whyplain .whylist li {
+.js .whyplain .whylist li {
     opacity: 0;
     transform: translateY(14px)
 }
@@ -1084,3 +1084,6 @@ select option {
         font-size: .6rem;
     }
 }
+/* Optional text blocks supplied by the SEO team (rendered only when they have content) */
+.faq{display:grid;gap:1.3rem;margin-top:2.2rem;max-width:46rem}.fq{border-top:1px solid var(--line);padding-top:1.1rem}.fq h3{font:400 1.1rem/1.35 Sora,system-ui,sans-serif}.fq p{color:var(--mute);margin-top:.45rem}
+.pc .in{display:inline-block;margin-top:.9rem;font:500 .66rem Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--g);text-decoration:underline;text-underline-offset:4px}.pc .in:hover{color:var(--ink)}

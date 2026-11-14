@@ -47,3 +47,7 @@ Payload fields: full_name, email, phone, organization, message, date.
 - `src/config/site.ts`: confirm business-hours wording, the 24-hour response promise and NDA notice
 - Footer legal / privacy / disclosure links; exact live-site wording for ecosystem and strength descriptions in `src/data/`
 - Not verified from the live site: investment philosophy, vendor capital, industries/portfolio sections (no text was available)
+
+
+## SEO build (important)
+`npm run build` = type-check → `vite build` → `node scripts/prerender.mjs`. The last step writes the real page text, JSON-LD, privacy/terms/404 pages and sitemap.xml into `dist/`. See `docs/SEO-IMPLEMENTATION.md` and `docs/HOSTING-SETUP.md`.
