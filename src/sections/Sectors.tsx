@@ -26,13 +26,22 @@ export default function Sectors() {
             <span className="oc-n">{num} / {String(N).padStart(2, '0')}</span>
             <strong key={s.name}>{s.name}</strong>
           </div>
-          {SECTORS.map((x, k) => { const p = at(k); return (
-            <button key={x.name} type="button" className={'orb-node' + (k === i ? ' on' : '')} style={{ left: p.x + '%', top: p.y + '%' } as CSSProperties}
-              aria-label={x.name} aria-pressed={k === i} onClick={() => setI(k)} onFocus={() => setI(k)} onMouseEnter={() => setI(k)}>
-              <Icon d={x.d} size={20} />
-            </button>); })}
+          {SECTORS.map((x, k) => {
+            const p = at(k); return (
+              <button key={x.name} type="button" className={'orb-node' + (k === i ? ' on' : '')} style={{ left: p.x + '%', top: p.y + '%' } as CSSProperties}
+                aria-label={x.name} aria-pressed={k === i} onClick={() => setI(k)} onFocus={() => setI(k)} onMouseEnter={() => setI(k)}>
+                <Icon d={x.d} size={20} />
+              </button>);
+          })}
         </div>
-        <ul className="vh" aria-label="All investment sectors">{SECTORS.map(x => <li key={x.name}><h3>{x.name}</h3><p>{x.desc}</p></li>)}</ul>
+        <ul className="vh" aria-label="All investment sectors">
+          {SECTORS.map(x => (
+            <li key={x.name}>
+              <h3>{x.name}</h3>
+              <p>{x.desc}</p>
+            </li>
+          ))}
+        </ul>
         <div className="orb-detail">
           <span className="od-n" aria-hidden="true">{num}</span>
           <h3 key={'h' + s.name}>{s.name}</h3>
