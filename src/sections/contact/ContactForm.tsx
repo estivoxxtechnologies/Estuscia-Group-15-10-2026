@@ -61,7 +61,7 @@ export default function ContactForm() {
         <button className="btn p send" disabled={status === 'sending'}>{status === 'sending' ? 'Processing Submission...' : 'Submit Inquiry to Estuscia Group'}</button>
         <div className="st bad" role="status" aria-live="polite">
           {status === 'error' && <>We couldn’t send your message, so nothing was submitted. Please try again or email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
-            {import.meta.env.DEV && <> <button type="button" className="linkbtn" onClick={() => setStatus('demo')}>Dev only: preview success screen</button></>}</>}
+            {/* {import.meta.env.DEV && <> <button type="button" className="linkbtn" onClick={() => setStatus('demo')}>Dev only: preview success screen</button></>} */}</>}
         </div>
       </form>
     </Reveal>);
