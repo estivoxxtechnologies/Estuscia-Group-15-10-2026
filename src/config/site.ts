@@ -4,9 +4,9 @@ export const SITE = {
   url: 'https://www.estusciagroup.com/',
   email: 'support@estuscia.com',
   phones: [{ label: '(+91) 9633329669', tel: '+919633329669' }, { label: '9633359669', tel: '+919633359669' }],
-  office: { name: 'Estuscia Group', address: 'Hilite Business Park, Calicut' },
-  hours: { line: 'Monday - Saturday: 09:30 AM - 05:30 PM IST', note: 'Closed on public holidays' }, // TODO: confirm (source also said "Closed Weekends")
-  responseTime: 'Inquiries answered within 24 business hours', // TODO: confirm this commitment
-  confidentiality: 'All communications and proposals submitted are protected under strict NDA and corporate confidentiality protocols.', // TODO: confirm policy
+  office: { name: 'Estuscia Group', address: 'HiLITE City, HiLITE Business Park, Tower 1, 7th Floor, Kozhikode – 673014' },
+  hours: { line: 'Monday - Saturday: 09:30 AM - 05:30 PM IST', note: 'Closed on public holidays' },
+  responseTime: 'Inquiries answered within 12 business hours',
 };
-export const ASSETS = { logo: `${base}images/logo.png`, video: `${base}videos/teaser.mp4`, poster: `${base}videos/teaser-poster.jpg`, team: (file: string) => `${base}images/team/${file}` };
+export const LOGO = { width: 2236, height: 403 };   // intrinsic size of the logo file (prevents layout shift)
+export const ASSETS = { logo: `${base}images/logo.webp`, video: `${base}videos/teaser.mp4`, poster: `${base}videos/teaser-poster.jpg`, team: (file: string) => `${base}images/team/${file}` };

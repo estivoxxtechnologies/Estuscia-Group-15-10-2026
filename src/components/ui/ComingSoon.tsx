@@ -10,7 +10,7 @@ export default function ComingSoon() {
   useFilmVideo(vid, reduce ? 'still' : 'play');   // poster only when the visitor prefers reduced motion
   return (
     <div className="soon" id="soon" role="note" aria-label="Coming soon: a new chapter in the Estuscia ecosystem. Stay tuned.">
-      <video ref={vid} className="soon-vid" muted loop playsInline autoPlay={!reduce} preload="auto" poster={ASSETS.poster} aria-hidden="true"><source src={ASSETS.video} type="video/mp4" /></video>
+      <video ref={vid} className="soon-vid" muted loop playsInline preload="none" poster={ASSETS.poster} aria-hidden="true"><source src={ASSETS.video} type="video/mp4" /></video>
       <i className="cx tl" /><i className="cx tr" /><i className="cx bl" /><i className="cx br" />
       <div className="soon-top">
         <span className="soon-tag"><b />Chapter 10</span>

@@ -1,0 +1,25 @@
+/* Investment Sectors — ring of sector nodes around a glowing core + detail panel (no auto-play; the only motion is a short fade when the selection changes) */
+.orb-wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:center;margin-top:3rem}
+.orb{position:relative;width:100%;max-width:34rem;aspect-ratio:1;margin:0 auto}
+.orb:before{content:"";position:absolute;inset:14%;border-radius:50%;background:radial-gradient(circle,rgba(124,92,255,.34),rgba(124,92,255,.08) 55%,transparent 72%);pointer-events:none}
+.orb-bg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.orb-bg circle{fill:none;vector-effect:non-scaling-stroke}.orb-bg .r1{stroke:rgba(185,167,255,.3)}.orb-bg .r2{stroke:rgba(185,167,255,.2);stroke-dasharray:2 6}.orb-bg .r3{stroke:rgba(185,167,255,.1)}
+.orb-bg .sp{stroke:rgba(185,167,255,.16);stroke-width:1;vector-effect:non-scaling-stroke;transition:stroke .4s var(--ease)}.orb-bg .sp.on{stroke:rgba(255,255,255,.75)}
+.orb-core{position:absolute;left:50%;top:50%;width:40%;transform:translate(-50%,-50%);display:grid;justify-items:center;gap:.45rem;text-align:center;pointer-events:none}
+.oc-i{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;border:1px solid rgba(185,167,255,.5);background:rgba(124,92,255,.22);color:#fff}
+.oc-n{font:500 .62rem Inter,sans-serif;letter-spacing:.24em;color:var(--g)}
+.orb-core strong{font:400 clamp(.95rem,1.7vw,1.25rem)/1.25 Sora,Inter,sans-serif;color:var(--ink);animation:orbfade .45s var(--ease)}
+.orb-node{position:absolute;width:12.4%;aspect-ratio:1;transform:translate(-50%,-50%);display:grid;place-items:center;padding:0;border-radius:50%;border:1px solid rgba(185,167,255,.4);background:#0b0720;color:var(--g);cursor:pointer;transition:background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease)}
+.orb-node:hover,.orb-node:focus-visible{border-color:var(--g);color:#fff;outline:none}
+.orb-node.on{background:var(--v);color:#fff;border-color:#e5ddff;box-shadow:0 0 0 6px rgba(124,92,255,.22),0 0 32px rgba(124,92,255,.7)}
+.orb-detail{min-width:0}
+.od-n{display:block;font:200 clamp(4rem,9vw,7.5rem)/1 Sora,Inter,sans-serif;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(185,167,255,.55)}
+.orb-detail h3{margin:.4rem 0 .8rem;font:300 clamp(1.8rem,3.4vw,2.8rem)/1.1 Sora,Inter,sans-serif;letter-spacing:-.02em;color:var(--ink);animation:orbfade .45s var(--ease)}
+.orb-detail p{margin:0;max-width:28rem;color:var(--mute);font:300 1rem/1.6 Inter,sans-serif;animation:orbfade .45s var(--ease)}
+.od-chips{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;margin:2rem 0 0;padding:0}
+.od-chips button{padding:.4rem .8rem;border:1px solid var(--line);border-radius:99px;background:transparent;color:var(--mute);font:400 .74rem Inter,sans-serif;cursor:pointer;transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}
+.od-chips button:hover,.od-chips button.on{background:rgba(124,92,255,.22);border-color:var(--g);color:#fff}
+@keyframes orbfade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.rm .orb-core strong,.rm .orb-detail h3,.rm .orb-detail p{animation:none}
+@media(max-width:900px){.orb-wrap{grid-template-columns:1fr;gap:1.6rem;margin-top:2rem}.orb{max-width:26rem}.orb-detail{text-align:center}.orb-detail p{margin:0 auto}.od-n{font-size:3.4rem}.od-chips{display:none}.oc-i{width:46px;height:46px}.orb-node svg{width:46%;height:46%}}
+@media(max-width:480px){.orb-core{width:44%}.orb-core strong{font-size:.9rem}.orb-detail h3{font-size:1.7rem}}

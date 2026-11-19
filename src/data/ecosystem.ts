@@ -1,6 +1,5 @@
 import type { EcosystemEntity } from '../types';
 // Ecosystem structure (order matters). The last item is a deliberate teaser — it must NOT reveal any name or detail until launch.
-// TODO: confirm the Prodxtoria Pictures description below (placeholder wording) and the other descriptions against the live site.
 export const ECOSYSTEM: EcosystemEntity[] = [
   { name: 'Estuscia Group', tag: 'Parent ecosystem & governance holding', description: 'Group strategy, cross-entity synergies, executive advisory and global venture incubation.' },
   { name: 'Estuscia Capital', tag: 'Financial services & capital advisory', description: 'Financial engineering, debt and equity advisory, venture funding and capital structuring.' },

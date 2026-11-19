@@ -11,7 +11,7 @@ const N = 14; // bars
 const barHeight = (i: number) => 0.5 + i * 0.3 + Math.sin(i * 1.7) * 0.22;
 
 /** Real-time 3D: green profit graph, money icons, ecosystem network, floating logo. */
-export default function FinanceScene({ reduce, onFail }: { reduce: boolean; onFail: () => void }) {
+export default function FinanceScene({ reduce, onFail, onReady }: { reduce: boolean; onFail: () => void; onReady?: () => void }) {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const canvas = ref.current!, small = innerWidth < 820, touch = matchMedia('(hover:none)').matches;
@@ -98,6 +98,7 @@ export default function FinanceScene({ reduce, onFail }: { reduce: boolean; onFa
     const move = (e: PointerEvent) => { M.x = (e.clientX / innerWidth) * 2 - 1; M.y = (e.clientY / innerHeight) * 2 - 1; };
     resize(); addEventListener('resize', resize);
     if (reduce) { finalState(); cam.position.set(C.x, C.y, C.z); draw(0); } else { raf = requestAnimationFrame(loop); if (!touch) addEventListener('pointermove', move); }
+    onReady?.();
     return () => {
       cancelAnimationFrame(raf); removeEventListener('resize', resize); removeEventListener('pointermove', move);
       scene.traverse(obj => { const m = obj as THREE.Mesh; m.geometry?.dispose(); const mat = m.material as THREE.Material | THREE.Material[] | undefined;

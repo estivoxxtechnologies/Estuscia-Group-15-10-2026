@@ -1,59 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
+  <!-- Marks the page as "JavaScript is running" before first paint. The reveal animations only hide text under .js,
+       so with JavaScript off (or for crawlers that skip scripts) all text stays visible. -->
+  <script>document.documentElement.classList.add('js')</script>
+  <!-- Old onrender.com copies of the site must not be indexed -->
+  <script>if (/\.onrender\.com$/i.test(location.hostname)) { var m = document.createElement('meta'); m.name = 'robots'; m.content = 'noindex, nofollow'; document.head.appendChild(m); }</script>
+
   <!-- Primary SEO -->
-  <title>Estuscia Group</title>
-  <meta name="description"
-    content="Estuscia Group, also known as Estuscia or Estusciagroup, is a diversified business ecosystem spanning investment, financial services, business consulting, technology, media, trade, and startup development.">
-  <meta name="robots" content="index, follow">
+  <title>Estuscia Group | Business Ecosystem in Kozhikode, Kerala</title>
+  <meta name="description" content="Estuscia Group is a business ecosystem in Kozhikode, Kerala, spanning financial services, business consulting, technology, media, trade and startup development.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#05030d">
+  <!--gsc-->
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.estusciagroup.com/">
 
-  <!-- Google Site Name Structured Data -->
+  <!-- Structured data (replaced at build time by scripts/prerender.mjs with the full graph from src/config/seo.ts; the block below is the fallback) -->
+  <!--jsonld-->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Estuscia Group",
-    "alternateName": [
-      "Estuscia",
-      "Estusciagroup",
-      "www.estusciagroup.com"
-    ],
-    "url": "https://www.estusciagroup.com/"
+    "@graph": [
+      { "@type": "WebSite", "@id": "https://www.estusciagroup.com/#website", "name": "Estuscia Group", "alternateName": ["Estuscia", "Estusciagroup", "www.estusciagroup.com"], "url": "https://www.estusciagroup.com/", "inLanguage": "en-IN" },
+      { "@type": "Organization", "@id": "https://www.estusciagroup.com/#org", "name": "Estuscia Group", "alternateName": "Estuscia", "url": "https://www.estusciagroup.com/", "logo": "https://www.estusciagroup.com/images/logo.png" }
+    ]
   }
   </script>
-
-  <!-- Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Estuscia Group",
-    "alternateName": "Estuscia",
-    "url": "https://www.estusciagroup.com/",
-    "logo": "https://www.estusciagroup.com/images/logo.png"
-  }
-  </script>
+  <!--/jsonld-->
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Estuscia Group | Official Website">
+  <meta property="og:locale" content="en_IN">
   <meta property="og:site_name" content="Estuscia Group">
-  <meta property="og:description"
-    content="Discover Estuscia Group, a diversified business ecosystem connecting investment, businesses, technology, media, trade, and opportunities for sustainable growth.">
+  <meta property="og:title" content="Estuscia Group | Business Ecosystem in Kozhikode, Kerala">
+  <meta property="og:description" content="Estuscia Group is a business ecosystem in Kozhikode, Kerala, spanning financial services, business consulting, technology, media, trade and startup development.">
   <meta property="og:url" content="https://www.estusciagroup.com/">
-  <meta property="og:image" content="https://www.estusciagroup.com/images/logo.png">
+  <meta property="og:image" content="https://www.estusciagroup.com/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Estuscia Group logo on a dark violet background">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Estuscia Group | Business Ecosystem in Kozhikode, Kerala">
+  <meta name="twitter:description" content="Estuscia Group is a business ecosystem in Kozhikode, Kerala, spanning financial services, business consulting, technology, media, trade and startup development.">
+  <meta name="twitter:image" content="https://www.estusciagroup.com/og-image.png">
+  <meta name="twitter:image:alt" content="Estuscia Group logo on a dark violet background">
 
   <!-- Icons -->
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,8 +70,7 @@
 
   <noscript>
     Estuscia Group — Building a Trusted Ecosystem.
-    Please enable JavaScript to view the website.
-    Contact: support@estuscia.com · (+91) 9633329669
+    Contact: support@estuscia.com · (+91) 9633329669 · 9633359669
   </noscript>
 
   <script type="module" src="/src/main.tsx"></script>

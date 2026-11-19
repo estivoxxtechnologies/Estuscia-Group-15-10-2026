@@ -4,6 +4,7 @@ import { EMAILJS } from '../../config/emailjs';
 import { SITE } from '../../config/site';
 import type { ContactFormData, FormErrors } from '../../types';
 import { saveLeadLocally } from '../../utils/leads';
+import { trackLead } from '../../utils/analytics';
 import { validate } from './validation';
 import Reveal from '../../components/ui/Reveal';
 
@@ -28,7 +29,7 @@ export default function ContactForm() {
         full_name: snapshot.fullName, email: snapshot.email, phone: snapshot.phone,
         organization: snapshot.organization || 'Not Provided', message: snapshot.message, date: new Date().toLocaleString(),
       }, EMAILJS.publicKey);
-      saveLeadLocally(snapshot); setSentName(snapshot.fullName); setData(EMPTY); setStatus('done');
+      saveLeadLocally(snapshot); trackLead(); setSentName(snapshot.fullName); setData(EMPTY); setStatus('done');
     } catch (err) { console.error('EmailJS error:', err); setSentName(snapshot.fullName); setStatus('error'); }   // never a false success
     finally { busy.current = false; }
   };

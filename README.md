@@ -44,6 +44,10 @@ Payload fields: full_name, email, phone, organization, message, date.
 ## Add / confirm before launch
 - Photos: `public/images/team/` → shahzeen-khalid.jpg, akshay-m-a.jpg, riza-mathiyam.jpg, anirudh-menon.jpg (initials until then)
 - Favicon: replace `public/favicon.png` (currently the bird mark from the logo)
-- `src/config/site.ts`: confirm business-hours wording, the 24-hour response promise and NDA notice
+- `src/config/site.ts`: business hours, response time and contact details (confirmed by the client).
 - Footer legal / privacy / disclosure links; exact live-site wording for ecosystem and strength descriptions in `src/data/`
 - Not verified from the live site: investment philosophy, vendor capital, industries/portfolio sections (no text was available)
+
+
+## SEO build (important)
+`npm run build` = type-check → `vite build` → `node scripts/prerender.mjs`. The last step writes the real page text, JSON-LD, privacy/terms/404 pages and sitemap.xml into `dist/`. See `docs/SEO-IMPLEMENTATION.md` and `docs/HOSTING-SETUP.md`.
