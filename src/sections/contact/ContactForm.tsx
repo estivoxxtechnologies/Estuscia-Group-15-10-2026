@@ -49,11 +49,11 @@ export default function ContactForm() {
       <form id="cf" onSubmit={submit} noValidate>
         <div><h3 className="fh">Send Us a Message</h3><p className="sm">Fill out the fields below and we will get back to you shortly.</p></div>
         <div className="two">
-          <div className={'f' + (errors.fullName ? ' bad' : '')}><label htmlFor="fullName">Full Name <b>*</b></label><input {...field('fullName')} autoComplete="name" placeholder="e.g. Eleanor Vance" value={data.fullName} onChange={e => set('fullName', e.target.value)} /><Err k="fullName" /></div>
+          <div className={'f' + (errors.fullName ? ' bad' : '')}><label htmlFor="fullName">Full Name <b>*</b></label><input {...field('fullName')} autoComplete="name" placeholder="e.g. Rahul Menon" value={data.fullName} onChange={e => set('fullName', e.target.value)} /><Err k="fullName" /></div>
           <div className={'f' + (errors.email ? ' bad' : '')}><label htmlFor="email">Corporate Email <b>*</b></label><input {...field('email')} type="email" autoComplete="email" placeholder="name@company.com" value={data.email} onChange={e => set('email', e.target.value)} /><Err k="email" /></div>
         </div>
         <div className="two">
-          <div className={'f' + (errors.phone ? ' bad' : '')}><label htmlFor="phone">Phone Number <b>*</b></label><input {...field('phone')} type="tel" autoComplete="tel" placeholder="+1 (555) 000-0000" value={data.phone} onChange={e => set('phone', e.target.value)} /><Err k="phone" /></div>
+          <div className={'f' + (errors.phone ? ' bad' : '')}><label htmlFor="phone">Phone Number <b>*</b></label><input {...field('phone')} type="tel" autoComplete="tel" placeholder="+91 98XXXXXXXX" value={data.phone} onChange={e => set('phone', e.target.value)} /><Err k="phone" /></div>
           <div className="f"><label htmlFor="organization">Organization / Company</label><input id="organization" autoComplete="organization" placeholder="Company or Startup Name" value={data.organization} onChange={e => set('organization', e.target.value)} /></div>
         </div>
         <div className={'f' + (errors.message ? ' bad' : '')}><label htmlFor="message">Message / Project Details <b>*</b></label><textarea {...field('message')} rows={4} placeholder="Briefly describe your objectives, project timeline, or specific requirements..." value={data.message} onChange={e => set('message', e.target.value)} /><Err k="message" /></div>

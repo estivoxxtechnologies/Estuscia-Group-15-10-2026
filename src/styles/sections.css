@@ -903,14 +903,16 @@ select option {
     box-shadow: 0 0 10px var(--v)
 }
 
-.soon h3 {
+.soon h3,
+.soon .soon-h {
     margin: 1rem 0 0;
     font: 300 clamp(1.7rem, 3.6vw, 2.9rem)/1.1 Sora, Inter, sans-serif;
     letter-spacing: -.02em;
     color: var(--ink)
 }
 
-.soon h3 em {
+.soon h3 em,
+.soon .soon-h em {
     font-style: normal;
     color: var(--g)
 }

@@ -14,7 +14,7 @@ export default function ComingSoon() {
       <i className="cx tl" /><i className="cx tr" /><i className="cx bl" /><i className="cx br" />
       <div className="soon-top">
         <span className="soon-tag"><b />Chapter 10</span>
-        <h3>A new chapter is <em>on its way.</em></h3>
+        <p className="soon-h">A new chapter is <em>on its way.</em></p>
       </div>
       <div className="soon-gap" aria-hidden="true" />
       <div className="soon-bot">

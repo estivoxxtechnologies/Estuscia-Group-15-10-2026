@@ -5,5 +5,4 @@ export const CLIENT = {
   hasMap: null as string | null,               // Google Maps link of the Business Profile
   areaServed: null as string | null,
   social: { instagram: 'https://www.instagram.com/estuscia' as string | null, linkedin: 'https://www.linkedin.com/company/estusciagroup' as string | null, estivoxx: null as string | null },   // footer links + sameAs
-  gscToken: null as string | null,             // Search Console meta-tag token (or set GSC_TOKEN in the build environment)
 };

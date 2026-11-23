@@ -35,7 +35,7 @@ await esbuild.build({
   define: { 'import.meta.env': JSON.stringify({ BASE_URL: '/', MODE: 'production', DEV: false, PROD: true, SSR: true }) },
 });
 const server = await import(pathToFileURL(out).href);
-const { renderPage, renderChrome, buildJsonLd, SITE, ORIGIN, CLIENT } = server;
+const { renderPage, renderChrome, buildJsonLd, SITE, ORIGIN } = server;
 
 // ---- 2. home page ----
 const indexPath = path.join(dist, 'index.html');
@@ -45,14 +45,13 @@ const app = renderPage();
 html = html.replace('<div id="root"></div>', () => `<div id="root">${app}</div>`);
 const ld = `<script type="application/ld+json">\n${buildJsonLd()}\n</script>`;
 html = /<!--jsonld-->[\s\S]*?<!--\/jsonld-->/.test(html) ? html.replace(/<!--jsonld-->[\s\S]*?<!--\/jsonld-->/, () => ld) : html.replace('</head>', () => ld + '\n</head>');
-const gsc = process.env.GSC_TOKEN || CLIENT.gscToken;
-html = html.replace(/<!--gsc-->/, () => (gsc ? `<meta name="google-site-verification" content="${esc(gsc)}">` : ''));
 await writeFile(indexPath, html);
 
 // ---- 3. static pages (same stylesheet, navbar and footer as the site) ----
 const headLinks = (html.match(/<link [^>]*>/g) || []).filter(l => /rel="(stylesheet|preconnect|icon|apple-touch-icon)"/.test(l)).join('\n');
 const { PAGES, NOT_FOUND } = await import(pathToFileURL(path.join(root, 'scripts/content/pages.mjs')).href);
 const chrome = renderChrome();
+const gaTag = (html.match(/<!-- Google tag \(gtag\.js\) -->[\s\S]*?<\/script>\s*<script>[\s\S]*?<\/script>/) || [''])[0];   // same GA4 snippet as the home page
 const pageCss = `.doc{max-width:46rem;margin:0 auto}.doc h1{font-size:clamp(2rem,5vw,3.4rem);margin:.2rem 0 1rem}.doc h2{font:400 1.3rem/1.3 Sora,system-ui,sans-serif;letter-spacing:-.01em;margin:2.2rem 0 .6rem}.doc p,.doc li{color:var(--mute)}.doc p{margin:.6rem 0 0}.doc ul{margin:.6rem 0 0 1.2rem;display:grid;gap:.4rem}.doc a:not(.btn){color:var(--g);text-decoration:underline}.doc b{color:var(--ink);font-weight:500}main.page>section{padding-top:clamp(7rem,16vh,9rem)}.doc .lead{margin-bottom:1rem}.doc .btn{margin-top:1.6rem}`;
 const menuJs = `document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.bg2');if(b){var n=b.closest('nav');var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)}})`;
 function pageHtml(p, { index = true } = {}) {
@@ -69,6 +68,7 @@ function pageHtml(p, { index = true } = {}) {
 ${url ? `<link rel="canonical" href="${url}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Estuscia Group"><meta property="og:title" content="${esc(p.title)}"><meta property="og:description" content="${esc(p.description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${ORIGIN}/og-image.png">` : ''}
 ${headLinks}
+${gaTag}
 <style>${pageCss}</style>
 </head>
 <body>

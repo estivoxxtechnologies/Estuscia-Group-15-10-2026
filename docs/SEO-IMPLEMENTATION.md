@@ -18,21 +18,21 @@ In the Render build log look for: `[prerender] ✔ home page + 2 pages + 404 + s
 | 6 | Expanded JSON-LD | Done — **pending client values** | `src/config/seo.ts`. Left out until supplied: legalName, geo, hasMap, areaServed, sameAs, founder LinkedIn → fill `src/config/client.ts` |
 | 7 | Contact details as crawlable text | Done — confirmed by client | Both phone numbers are active and shown; address is now "HiLITE City, HiLITE Business Park, Tower 1, 7th Floor, Kozhikode – 673014" everywhere (page, footer, schema, legal pages, llms.txt). **Google Business Profile must be changed to the same address** (it currently says Tower 2, 4th floor) |
 | 8 | /privacy and /terms | Done — text approved by the client | `scripts/content/pages.mjs`; footer links; in sitemap |
-| 9 | GA4 + key event + Search Console | Code ready — **needs IDs** | `src/utils/analytics.ts` (`generate_lead` on a successful form send); set `VITE_GA4_ID`; `GSC_TOKEN` or DNS TXT |
+| 9 | GA4 + key event + Search Console | Done (round 3) | tag `G-HVWF5TRJNG` and the verification meta are written in `index.html`; `generate_lead` is sent from `src/utils/analytics.ts` |
 | 10 | Sitemap with lastmod + pages | Done | generated at build; robots.txt unchanged; submit in Search Console |
 | 11 | /llms.txt | Done — **draft** | `public/llms.txt`; replace with the SEO team's text |
 | 12 | TODO wording / finance wording | Done — client confirmed no further changes | TODO notes removed from the code; response time changed to 12 business hours; the NDA line removed |
 | 13 | Speed on phones | Partly done | Three.js is its own chunk loaded after first paint; the intro still waits for it; video loads only when scrolled to (poster first); 3D skipped on save-data/2G. See note |
 | 14 | Real pages | Infrastructure done — **copy needed** | add an object to `scripts/content/pages.mjs`; it gets its own title/description/H1, sitemap entry, pre-rendered file |
 | 15 | Image sizes + WebP logo | Done | `width`/`height` on logo and team photos; `images/logo.webp` (31 KB vs 75 KB) |
-| 16 | Cache headers | Config provided — **apply in Render** | `docs/HOSTING-SETUP.md` |
+| 16 | Cache headers | **Render dashboard step** | see `docs/HOSTING-SETUP.md` §1 |
 | 17 | Security headers | Config provided — **apply in Render/Cloudflare** | `docs/HOSTING-SETUP.md` |
 | 18 | "What we do" + FAQ | Components ready — **text needed** | `src/data/whatWeDo.ts`, `src/data/faq.ts` (also writes FAQPage schema); nothing shows until filled |
 | 19 | Leadership LinkedIn + Person schema | Done | all four leaders link to their LinkedIn and the Person schema carries it |
 | 20 | Footer social + sameAs | Done (Instagram, LinkedIn) | Estivoxx link not supplied, so not shown |
 | 21 | favicon.ico | Done | `/favicon.ico` (16/32/48), `favicon-48.png`, `favicon.png`, `apple-touch-icon.png` (180) |
 | 22 | Heading outline | Done | footer `h4` → `p` (same look); outline is H1 › H2 › H3 › H4 with no skips |
-| 23 | onrender.com duplicates | Code done; **dashboard step remains** | see `docs/HOSTING-SETUP.md` |
+| 23 | onrender.com duplicates | **Render dashboard steps** | see `docs/HOSTING-SETUP.md` §2 |
 | 24 | Branded 404 + /index.html redirect | 404 page done; **redirect in Render** | `dist/404.html` |
 | 25 | Content roadmap | Plan below | built after items 1–12 |
 
@@ -59,3 +59,14 @@ Each is added as an entry in `scripts/content/pages.mjs`, then appears in the si
 | Cache + security headers, X-Robots-Tag on old services | Must be set in Render/Cloudflare — exact steps in `docs/HOSTING-SETUP.md` |
 | GA4 + Search Console | Code ready; waiting for the IDs |
 | Test enquiry | After the next deploy, from the live site (contact form not modified apart from the analytics event) |
+
+## Round 3 (SEO re-check, 19 November 2026)
+| SEO item | Result |
+|---|---|
+| 1 Search Console verification | `<meta name="google-site-verification" …>` written directly in the `<head>` of `index.html` (permanent) |
+| 2 Google Analytics 4 | gtag.js snippet (async, `G-HVWF5TRJNG`) in `<head>` of the home page and of the Privacy/Terms/404 pages; `generate_lead` event on a successful contact-form send. The Privacy page keeps its Google Analytics sentence because GA goes live in this same deploy |
+| 3 Cache headers for /assets/* | Render dashboard step (`docs/HOSTING-SETUP.md` §1) |
+| 4 Old onrender.com copies | Render dashboard steps (`docs/HOSTING-SETUP.md` §2) |
+| 5 Headings | No heading repeats in the HTML or the live page (checked in a browser). "A new chapter is on its way." is now plain text (it was read as the fragment "A new chapter is") |
+| 6 Contact form placeholders | "e.g. Rahul Menon" and "+91 98XXXXXXXX" |
+| 7 Square logo | `public/images/logo-square.png` (1024×1024 PNG) → https://www.estusciagroup.com/images/logo-square.png after deploy |
