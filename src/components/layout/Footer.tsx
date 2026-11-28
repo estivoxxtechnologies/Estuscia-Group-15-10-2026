@@ -12,7 +12,7 @@ export default function Footer({ reduce }: { reduce: boolean }) {
     <footer>
       <div className="fg">
         <div><img src={ASSETS.logo} alt="Estuscia Group" width={LOGO.width} height={LOGO.height} /><p>Building a Trusted Ecosystem — a multi-business ecosystem driving sustainable growth across finance, consulting, technology, trade, and venture incubation.</p></div>
-        <div><p className="fcap">Navigate</p><ul>{NAV_ITEMS.map(i => <li key={i.id}><a href={`/#${i.id}`} onClick={e => go(e, i.id)}>{i.label}</a></li>)}</ul></div>
+        <div><p className="fcap">Navigate</p><ul>{NAV_ITEMS.map(i => <li key={i.id}><a href={`/#${i.id}`} onClick={e => go(e, i.id)}>{i.label}</a></li>)}<li><a href="/blog/">Blog</a></li></ul></div>
         <div><p className="fcap">Contact</p><ul><li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>{SITE.phones.map(p => <li key={p.tel}><a href={`tel:${p.tel}`}>{p.label}</a></li>)}<li>{SITE.office.address}</li>
           {SOCIAL.map(([name, url]) => <li key={name}><a href={url!} target="_blank" rel="noopener noreferrer">{name}</a></li>)}</ul></div>
       </div>

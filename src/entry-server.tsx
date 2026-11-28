@@ -12,3 +12,4 @@ export const renderPage = () => renderToString(<Layout ready={false} reduce={fal
 export const renderChrome = () => ({ nav: renderToStaticMarkup(<Navbar active="" onNavigate={noop} reduce />), footer: renderToStaticMarkup(<Footer reduce />) });
 export { buildJsonLd, abs, ORIGIN, CLIENT } from './config/seo';
 export { SITE } from './config/site';
+export { POSTS } from './data/blog';

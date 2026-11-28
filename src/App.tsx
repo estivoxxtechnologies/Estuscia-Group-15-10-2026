@@ -11,6 +11,7 @@ import Ecosystem from './sections/Ecosystem';
 import Sectors from './sections/Sectors';
 import Leadership from './sections/Leadership';
 import Faq from './sections/Faq';
+import LatestPosts from './sections/LatestPosts';
 import ContactSection from './sections/contact/ContactSection';
 import { useReducedMotion } from './hooks/useReducedMotion';
 import { useScrollSpy } from './hooks/useScrollSpy';
@@ -39,6 +40,7 @@ export function Layout({ ready, reduce, active, onNavigate, loader }: { ready: b
         <Ecosystem />
         <Sectors />
         <Leadership />
+        <LatestPosts />
         <Faq />
         <ContactSection />
       </main>

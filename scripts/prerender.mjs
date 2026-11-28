@@ -35,7 +35,7 @@ await esbuild.build({
   define: { 'import.meta.env': JSON.stringify({ BASE_URL: '/', MODE: 'production', DEV: false, PROD: true, SSR: true }) },
 });
 const server = await import(pathToFileURL(out).href);
-const { renderPage, renderChrome, buildJsonLd, SITE, ORIGIN } = server;
+const { renderPage, renderChrome, buildJsonLd, SITE, ORIGIN, POSTS = [] } = server;
 
 // ---- 2. home page ----
 const indexPath = path.join(dist, 'index.html');
@@ -96,8 +96,9 @@ await writeFile(path.join(dist, '404.html'), pageHtml(NOT_FOUND, { index: false 
 // ---- 4. sitemap.xml (home + every page, with lastmod from the last commit that touched site content) ----
 let lastmod = new Date().toISOString().slice(0, 10);
 try { const d = execSync('git log -1 --format=%cs -- src public scripts index.html', { cwd: root, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim(); if (/^\d{4}-\d{2}-\d{2}$/.test(d)) lastmod = d; } catch { /* no git history on the build host: build date is used */ }
-const urls = [{ loc: ORIGIN + '/', priority: '1.0' }, ...PAGES.map(p => ({ loc: `${ORIGIN}/${p.slug}`, priority: '0.3' }))];
-await writeFile(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${u.loc}</loc><lastmod>${lastmod}</lastmod></url>`).join('\n')}\n</urlset>\n`);
+const urls = [{ loc: ORIGIN + '/', priority: '1.0' }, ...PAGES.map(p => ({ loc: `${ORIGIN}/${p.slug}`, priority: '0.3' })),
+  ...(POSTS.length ? [{ loc: `${ORIGIN}/blog/`, lastmod: POSTS[0].date }] : []), ...POSTS.map(p => ({ loc: `${ORIGIN}/blog/${p.slug}/`, lastmod: p.date }))];
+await writeFile(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${u.loc}</loc><lastmod>${u.lastmod || lastmod}</lastmod></url>`).join('\n')}\n</urlset>\n`);
 
 // ---- 5. self-check: fail the deploy if crawlers would get an empty page ----
 const text = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<[^>]+>/g, ' ').replace(/<!--.*?-->/g, '').replace(/&amp;/g, '&').replace(/\s+/g, ' ');
